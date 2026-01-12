@@ -1,0 +1,285 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ethan's Photography</title>
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
+body { background:#fff8f0; color:#222; line-height:1.8; }
+
+/* Top banner */
+.top-buttons {
+  background:#fff;
+  padding:15px 25px;
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.15);
+  border-bottom:1px solid #ddd;
+  margin-bottom:30px;
+}
+.top-buttons button {
+  background:#ff6f61;
+  color:white;
+  border:none;
+  padding:8px 18px;
+  font-size:0.9rem;
+  border-radius:5px;
+  cursor:pointer;
+}
+.top-buttons button:hover { background:#ff8a75; }
+
+/* Header */
+header {
+  background:#1b1b2f;
+  padding:50px 20px 25px;
+  text-align:center;
+  color:#fff;
+}
+.logo {
+  width:120px;
+  border-radius:12px;
+  margin-bottom:20px;
+}
+header h1 {
+  font-size:3rem;
+  font-family:'Georgia', serif;
+}
+nav { margin-top:15px; }
+nav a {
+  margin:0 18px;
+  font-weight:bold;
+  cursor:pointer;
+  color:#ff6f61;
+  text-decoration:none;
+}
+nav a:hover { color:#ffa07a; }
+
+/* Sections */
+section {
+  padding:80px 20px;
+  max-width:1100px;
+  margin:auto;
+  display:none;
+}
+section.active { display:block; }
+
+h2 {
+  color:#ff6f61;
+  margin-bottom:30px;
+  font-size:2.2rem;
+  text-align:center;
+}
+
+/* Hero */
+.hero-block {
+  background:#ffaf91;
+  max-width:1000px;
+  margin:30px auto 60px;
+  padding:50px 20px;
+  border-radius:12px;
+  text-align:center;
+  color:#fff;
+}
+.hero-buttons {
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin-top:20px;
+}
+.hero-buttons button {
+  background:#ff6f61;
+  color:#fff;
+  border:none;
+  padding:10px 22px;
+  border-radius:6px;
+  cursor:pointer;
+}
+.hero-buttons button:hover { background:#ff8a75; }
+
+/* Cards */
+.cards {
+  display:flex;
+  gap:25px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.card {
+  background:#fff;
+  padding:25px;
+  border-radius:12px;
+  flex:1 1 300px;
+  box-shadow:0 6px 15px rgba(0,0,0,0.08);
+  text-align:center;
+}
+
+/* Tables */
+table {
+  width:100%;
+  border-collapse:collapse;
+  margin-top:30px;
+}
+th, td {
+  border:1px solid #ddd;
+  padding:18px;
+  text-align:center;
+}
+th {
+  background:#ff6f61;
+  color:#fff;
+}
+
+/* Gallery */
+.gallery {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap:15px;
+}
+.gallery img {
+  width:100%;
+  border-radius:10px;
+  cursor:pointer;
+  transition: transform 0.3s;
+}
+.gallery img:hover { transform:scale(1.05); }
+
+/* Lightbox */
+.lightbox {
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.9);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:2000;
+}
+.lightbox img {
+  max-width:90%;
+  max-height:90%;
+  border-radius:12px;
+}
+
+/* Footer */
+footer {
+  background:#1b1b2f;
+  padding:30px;
+  text-align:center;
+  color:#fff;
+  margin-top:60px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Top Buttons -->
+<div class="top-buttons">
+  <button onclick="showSection('home')">Home</button>
+  <button onclick="showSection('gallery')">Gallery</button>
+  <button onclick="showSection('pricing')">Pricing</button>
+  <button onclick="showSection('ratings')">Ratings</button>
+</div>
+
+<header>
+  <img src="Logo.jpg" class="logo">
+  <h1>Ethan's Photography</h1>
+  <nav>
+    <a onclick="showSection('home')">Home</a>
+    <a onclick="showSection('pricing')">Pricing</a>
+    <a onclick="showSection('ratings')">Ratings</a>
+    <a onclick="showSection('contact')">Contact</a>
+  </nav>
+</header>
+
+<section id="home" class="active">
+  <div class="hero-block">
+    <h2>Welcome to Ethan's Photography</h2>
+    <p>Capturing unforgettable moments with professionalism and creativity.</p>
+    <div class="hero-buttons">
+      <button onclick="window.open('mailto:ethansphotography@email.com')">Book a Session</button>
+      <button onclick="window.open('https://www.instagram.com/ethan._photography._?igsh=ZXR0djVtNXRmcDRo','_blank')">Instagram</button>
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card"><h3>Professional Experience</h3><p>High quality photography you can trust.</p></div>
+    <div class="card"><h3>Creative Vision</h3><p>Each photo carefully crafted.</p></div>
+    <div class="card"><h3>Client Satisfaction</h3><p>Your memories matter.</p></div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <h2>Pricing</h2>
+  <table>
+    <tr><th>Service</th><th>Duration</th><th>Price</th></tr>
+    <tr><td>Portrait Session</td><td>1 hour</td><td>R1,200</td></tr>
+    <tr><td>Creative Projects</td><td>Custom package</td><td>R2,500+</td></tr>
+    <tr><td>Event Photography</td><td>Up to 4 hours</td><td>R3,500</td></tr>
+  </table>
+</section>
+
+<!-- RATINGS -->
+<section id="ratings">
+  <h2>Rate Ethan</h2>
+  <div style="text-align:center;">
+    <button onclick="alert('Rating system coming soon!')">Rate Now</button>
+  </div>
+</section>
+
+<!-- GALLERY (FIXED FOR JPEG FILES) -->
+<section id="gallery">
+  <h2>Gallery</h2>
+
+  <div class="gallery">
+    <img src="photo.jpeg" onclick="openLightbox(this)">
+
+    <script>
+      for(let i = 1; i <= 20; i++){
+        document.write(
+          '<img src="photo' + i + '.jpeg" onclick="openLightbox(this)">'
+        );
+      }
+    </script>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img">
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+  <table>
+    <tr><th>Type</th><th>Details</th></tr>
+    <tr><td>Email</td><td>ethansphotography@email.com</td></tr>
+    <tr><td>Phone</td><td>+27 82 987 6543</td></tr>
+    <tr><td>Location</td><td>Durban, South Africa</td></tr>
+  </table>
+</section>
+
+<footer>
+  &copy; 2026 Ethan's Photography
+</footer>
+
+<script>
+function showSection(id){
+  document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function openLightbox(img){
+  document.getElementById("lightbox-img").src = img.src;
+  document.getElementById("lightbox").style.display = "flex";
+}
+
+function closeLightbox(){
+  document.getElementById("lightbox").style.display = "none";
+}
+</script>
+
+</body>
+</html>
